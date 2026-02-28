@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVMS - Violation Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>SVMS</h2>
+        <a href="#"><i class="fas fa-chart-line"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-users"></i> Students</a>
+        <a href="#" class="violationM"><i class="fas fa-exclamation-circle"></i> Violations</a>
+        <a href="#"><i class="fas fa-history"></i> Student History</a>
+        <a href="#"><i class="fas fa-file-alt"></i> Reports</a>
+        <a href="#"><i class="fas fa-chart-pie"></i> Analytics</a>
+        <a href="#"><i class="fas fa-check-circle"></i> Clearance</a>
+        <a href="#"><i class="fas fa-user-cog"></i> User Management</a>
+        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+    </div>
+<div class="container">
+    <div class="main">
+        <h1>Violation Management</h1>
+
+        <div class="content-columns">
+            <div class="table-container">
+                <div class="table-top">
+                    <input type="text" class="search" placeholder="Search violations...">
+                    <button class="open-modal-btn">+ Add Violation</button>
+                    
+                </div>
+
+                <table>
+                    <thead>
+  <tr>
+    <th>Student</th>
+    <th>Course</th>
+    <th>Year</th>
+    <th>Violation</th>
+    <th>Offense Count</th>
+    <th>Penalty</th>
+    <th>Status</th>
+    <th>Officer</th>
+    <th>Actions</th> <!-- Updated column -->
+  </tr>
+</thead>
+<tbody>
+  {% for v in violations %}
+  <tr>
+    <td>{{ v["student"] }}</td>
+    <td>{{ v["course"] }}</td>
+    <td>{{ v["year"] }}</td>
+    <td>{{ v["violation_type"] }}</td>
+    <td>{{ v["offense_count"] }}</td>
+    <td>{{ v["penalty"] }}</td>
+    <td>{{ v["status"] }}</td>
+    <td>{{ v["officer"] }}</td>
+    <td>
+    <button class="view-btn"
+            data-photo="{{ v['photo'] }}"
+            data-student="{{ v['student'] }}"
+            data-course="{{ v['course'] }}"
+            data-year="{{ v['year'] }}"
+            data-violation="{{ v['violation_type'] }}"
+            data-offense="{{ v['offense_count'] }}"
+            data-penalty="{{ v['penalty'] }}"
+            data-status="{{ v['status'] }}"
+            data-officer="{{ v['officer'] }}">
+        View
+    </button>
+    <a href="/delete/{{ v['id'] }}">
+        <button type="button" class="delete-btn">Delete</button>
+    </a>
+    </td>
+  </tr>
+  {% endfor %}
+</tbody>
+                </table>
+            </div>
+        </div>
+    <div class="modal" id="viewModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Violation Details</h2>
+
+    <!-- Student photo -->
+    <div style="text-align:center; margin-bottom: 15px;">
+      <img id="modal-photo" src="{{ url_for('static', filename='placeholder.png') }}" 
+           alt="Student Photo" style="width:120px; height:120px; border-radius:50%; object-fit:cover;"/>
+    </div>
+
+    <p><strong>Student:</strong> <span id="modal-student"></span></p>
+    <p><strong>Course:</strong> <span id="modal-course"></span></p>
+    <p><strong>Year:</strong> <span id="modal-year"></span></p>
+    <p><strong>Violation:</strong> <span id="modal-violation"></span></p>
+    <p><strong>Offense Count:</strong> <span id="modal-offense"></span></p>
+    <p><strong>Penalty:</strong> <span id="modal-penalty"></span></p>
+    <p><strong>Status:</strong> <span id="modal-status"></span></p>
+    <p><strong>Officer:</strong> <span id="modal-officer"></span></p>
+  </div>
+</div>
+        <!-- Modal Form -->
+        <div class="modal" id="violationModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form method="POST" action="/add" class="violation-form">
+                    <h2>Add Violation</h2>
+                    <input type="text" id="student_modal" name="student" placeholder="Student Name" required>
+                    
+                    <select name="course" required>
+                        <option value="">Select Course</option>
+                        <option>BA</option>
+                        <option>HM</option>
+                        <option>BSCS</option>
+                        <option>CRIM</option>
+                        <option>COED</option>
+                    </select>
+                    
+                    <select name="year" required>
+                        <option value="">Select Year</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                    
+                    <select name="violation_type" id="violation_modal" required>
+                        <option value="">Select Violation</option>
+                        <option value="Dresscode">Dresscode</option>
+                        <option value="No Motor Sticker">No Motor Sticker</option>
+                        <option value="Late Submission">Late Submission</option>
+                        <option value="Absent without Leave">Absent without Leave</option>
+                    </select>
+
+                    <input type="text" id="offense_modal" placeholder="Offense Count (Auto)" disabled>
+                    <input type="text" id="penalty_modal" placeholder="Penalty (Auto)" disabled>
+                    
+                    <select name="status" required>
+                        <option value="">Status</option>
+                        <option>Pending</option>
+                        <option>Resolved</option>
+                    </select>
+                    
+                    <input type="text" name="officer" placeholder="Assign Officer" required>
+                    <button type="submit">Add Record</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Python compiled files
+__pycache__/
+*.py[cod]
+
+# Database file
+database.db
+
+# VS Code settings
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# Python logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db

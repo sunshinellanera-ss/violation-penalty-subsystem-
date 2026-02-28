@@ -1,0 +1,298 @@
+/* =========================
+   GENERAL STYLES
+========================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #e0f7f4; /* soft teal */
+    color: #004d40; /* dark teal text */
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+    position: fixed;
+    width: 260px;
+    height: 100vh;
+    background: linear-gradient(180deg, #00695c, #26a69a); /* teal gradient */
+    padding: 25px 15px;
+    color: white;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    margin: 8px 0;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.sidebar a:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateX(6px);
+}
+.sidebar .violationM{
+    background: #00695c;
+}
+/* =========================
+   MAIN CONTENT
+========================= */
+.main {
+    padding: 30px;
+    margin-left: 280px; /* account for sidebar */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #004d40;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   CONTENT COLUMNS
+========================= */
+.content-columns {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   FORM STYLING
+========================= */
+.violation-form {
+    flex: 1;
+    min-width: 280px;
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.violation-form h2 {
+    margin: 0;
+    color: #00796b; /* teal heading */
+    font-size: 24px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.violation-form input,
+.violation-form select {
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #b2dfdb;
+    font-size: 16px;
+}
+
+.violation-form input:focus,
+.violation-form select:focus {
+    border-color: #00796b;
+    box-shadow: 0 0 8px rgba(0, 121, 107, 0.3);
+    outline: none;
+}
+
+.violation-form button {
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00796b, #26a69a);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.violation-form button:hover {
+    background: linear-gradient(135deg, #26a69a, #00796b);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   TABLE STYLING
+========================= */
+.table-container {
+    flex: 2;
+    min-width: 500px;
+    background: #ffffff;
+    padding: 25px 20px;
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.table-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 12px;
+}
+
+.table-top input.search {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #b2dfdb;
+}
+
+.table-top input.search:focus {
+    border-color: #00796b;
+    box-shadow: 0 0 8px rgba(0, 121, 107, 0.2);
+}
+
+.table-top button.open-modal-btn {
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00796b, #26a69a);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.table-top button.open-modal-btn:hover {
+    background: linear-gradient(135deg, #26a69a, #00796b);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid #b2dfdb;
+}
+
+th {
+    background: #00796b;
+    color: white;
+    text-transform: uppercase;
+}
+
+tr:hover td {
+    background: #e0f2f1;
+}
+
+/* Delete button */
+.delete-btn {
+    background: #c62828;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #e53935;
+}
+
+/* =========================
+   MODAL STYLING
+========================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 22px;
+    width: 420px;
+    max-width: 95%;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #00796b;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #26a69a;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1000px) {
+    .content-columns {
+        flex-direction: column;
+    }
+
+    .violation-form,
+    .table-container {
+        min-width: 100%;
+    }
+}
+#modal-photo {
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+    border: 2px solid #00796b;
+    border-color: black;
+    border-radius: -50%;
+}
+/* View Button */
+.view-btn {
+    background: linear-gradient(135deg, #00796b, #26a69a);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-size: 14px;
+}
+
+.view-btn:hover {
+    background: linear-gradient(135deg, #26a69a, #00796b);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.modal-content h2{
+    text-align: center;
+}
