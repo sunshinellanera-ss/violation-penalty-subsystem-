@@ -63,7 +63,7 @@ SQLite Database (database.db)
 ---
 
 ## Project Structure
-svms-subsystem/
+violation-penalty-subsystem-/
 ├── app/
 │ ├── _init_.py
 │ ├── app.py 
