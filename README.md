@@ -37,6 +37,7 @@ Handles all aspects of violation management, including:
 - Duplicate violation prevention.  
 - Web interface with a responsive design (HTML, CSS, JavaScript).  
 - Modal popup for adding new violations and viewing.  
+- Search feature for violations (currently non-functional / under development)
 - PyTest integration for testing penalty engine logic.  
 
 ---
@@ -75,7 +76,7 @@ svms-subsystem/
 ├── templates/
 │ └── violations.html 
 ├── test/
-│ └── test_penalty_engine.py 
+│ └── test_svms_subsystem.py 
 ├── .gitignore
 └── README.md
 
@@ -116,7 +117,7 @@ Run:
 pytest
 output:
 collected  items
-tests/test_penalty_engine.py ........ [100%]
+tests/test_svms_subsystem.py ........ [100%]
 8 passed in 0.42s
 
 Component / File	         Status
