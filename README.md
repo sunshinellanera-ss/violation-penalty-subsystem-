@@ -65,7 +65,7 @@ SQLite Database (database.db)
 ## Project Structure
 svms-subsystem/
 ├── app/
-│ ├── init.py
+│ ├── _init_.py
 │ ├── app.py 
 │ ├── database.py 
 │ ├── violation_service.py 
@@ -79,7 +79,6 @@ svms-subsystem/
 │ └── test_penalty_engine.py 
 ├── .gitignore
 └── README.md
-
 
 ---
 
@@ -100,17 +99,26 @@ svms-subsystem/
 ---
 
 ## How to Run the Subsystem
-1. Open terminal/VS Code in the `svms-subsystem` folder.  
+
+1. Open terminal inside the project folder.
+
 2. Install Flask (if not installed):
-```bash
-pip install flask
-3. Set the Flask app and run: python -m app.app
-4. Open browser
-Adding Violations: Use the + Add Violation button.
-Deleting Violations: Use the Delete button next to each record.
+   pip install flask
+
+3. Run the application:
+   python -m app.app
+
+4. Open browser:
+   http://....
 
 ## Testing
 
+Run:
+pytest
+output:
+collected  items
+tests/test_penalty_engine.py ........ [100%]
+8 passed in 0.42s
 
 ## Development Workflow
 
@@ -130,3 +138,7 @@ Feature branch created: git checkout -b feature/violation-logging
 Files staged: git add .
 Commit made: git commit -m "Add penalty engine module"
 Branch pushed to GitHub: git push -u origin feature/violation-logging
+
+
+
+
