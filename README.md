@@ -19,15 +19,14 @@ The subsystem automatically counts repeat offenses, assigns penalties according 
 ## Subsystem Description
 **Violation Logging Subsystem**:  
 Handles all aspects of violation management, including:  
-- Recording student violation details  
-- Classifying violations (minor or major)  
+- Recording student violation details   
 - Counting repeat offenses automatically  
 - Applying sanctions based on predefined rules  
-- Maintaining historical violation data
+- Managing current violation records
 
 **Modules:**  
 1. **Add Violation Module** – Add new violations through a form.  
-2. **Violation Records Module** – List all violations with search, filter, and delete functionality.  
+2. **Violation Records Module** – List all violations with search, view, and delete functionality.  
 3. **Penalty Computation Module** – Calculates penalties using the rules defined in `penalty_engine.py`.  
 
 ---
@@ -37,7 +36,7 @@ Handles all aspects of violation management, including:
 - Automatic penalty calculation based on offense count and violation type.  
 - Duplicate violation prevention.  
 - Web interface with a responsive design (HTML, CSS, JavaScript).  
-- Modal popup for adding new violations.  
+- Modal popup for adding new violations and viewing.  
 - PyTest integration for testing penalty engine logic.  
 
 ---
@@ -100,7 +99,7 @@ svms-subsystem/
 
 ## How to Run the Subsystem
 
-1. Open terminal inside the project folder.
+1. Open terminal inside the project folder .
 
 2. Install Flask (if not installed):
    pip install flask
@@ -120,6 +119,14 @@ collected  items
 tests/test_penalty_engine.py ........ [100%]
 8 passed in 0.42s
 
+Component / File	         Status
+penalty_engine.py	         ✅ Passed
+database.py	               ✅ Passed
+violation_service.py	      ✅ Passed
+Flask App Routes (app.app)	✅ Passed
+
+All core components, including penalty calculation, database operations, violation service, and web routes, are working correctly.
+
 ## Development Workflow
 
 Version Control: Git with feature branches and meaningful commit messages.
@@ -130,14 +137,13 @@ Incremental Integration: Add modules one by one, verify functionality, and merge
 
 
 ## Git workflow evidence for report
-Git workflow evidence for report
-Include these in your report:
-Repository initialized: git init
-Remote added: git remote add origin <repo-url>
-Feature branch created: git checkout -b feature/violation-logging
-Files staged: git add .
-Commit made: git commit -m "Add penalty engine module"
-Branch pushed to GitHub: git push -u origin feature/violation-logging
+
+- Repository initialized: git init
+- Remote added: git remote add origin <https://github.com/sunshinellanera-ss/violation-penalty-subsystem-.git>
+- Feature branch created: git checkout -b feature/violation-logging
+- Files staged: git add .
+- Commit made: git commit -m "Add penalty engine module"
+- Branch pushed to GitHub: git push -u origin feature/violation-logging
 
 
 
