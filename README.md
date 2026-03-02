@@ -144,7 +144,7 @@ Incremental Integration: Add modules one by one, verify functionality, and merge
 - Feature Branches: The project was managed using Git with a single main branch for version control.
 - Files staged: git add .
 - Commit made: git commit -m "Add penalty engine module"
-- Branch pushed to GitHub: git push -u origin feature/violation-logging
+
 
 
 
