@@ -61,7 +61,7 @@ Penalty Engine (penalty_engine.py)
 SQLite Database (database.db)
 
 ---
-
+<pre> 
 ## Project Structure
 violation-penalty-subsystem-/
 ├── app/
@@ -79,7 +79,7 @@ violation-penalty-subsystem-/
 │ └── test_svms_subsystem.py 
 ├── .gitignore
 └── README.md
-
+</pre>
 ---
 
 ## Technologies Used
@@ -119,13 +119,13 @@ output:
 collected  items
 tests/test_svms_subsystem.py ........ [100%]
 8 passed in 0.42s
-
+<pre>
 Component / File	         Status
 penalty_engine.py	         ✅ Passed
 database.py	               ✅ Passed
 violation_service.py	      ✅ Passed
 Flask App Routes (app.app)	✅ Passed
-
+</pre>
 All core components, including penalty calculation, database operations, violation service, and web routes, are working correctly.
 
 ## Development Workflow
@@ -141,7 +141,7 @@ Incremental Integration: Add modules one by one, verify functionality, and merge
 
 - Repository initialized: git init
 - Remote added: git remote add origin <https://github.com/sunshinellanera-ss/violation-penalty-subsystem-.git>
-- Feature branch created: git checkout -b feature/violation-logging
+- Feature Branches: The project was managed using Git with a single main branch for version control.
 - Files staged: git add .
 - Commit made: git commit -m "Add penalty engine module"
 - Branch pushed to GitHub: git push -u origin feature/violation-logging
