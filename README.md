@@ -48,7 +48,7 @@ Handles all aspects of violation management, including:
 - **Database:** SQLite  
 - **Business Logic:** `violation_service.py` and `penalty_engine.py`  
 - **Testing Framework:** PyTest  
-
+<pre>
 **Flow:**  
 User (Browser)
 ↓
@@ -59,7 +59,7 @@ Violation Service (violation_service.py)
 Penalty Engine (penalty_engine.py)
 ↓
 SQLite Database (database.db)
-
+</pre>
 ---
 <pre> 
 ## Project Structure
